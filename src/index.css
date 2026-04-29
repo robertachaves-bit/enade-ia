@@ -32,9 +32,33 @@
 
 @media print {
   @page {
-    margin: 20mm;
+    margin: 15mm;
   }
   .no-print {
     display: none !important;
+  }
+  /* Ensure print content expands naturally */
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+    background: white !important;
+    color: #1e293b !important; /* Force hex color for PDF compatibility */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  /* Hide UI elements that shouldn't be in PDF */
+  nav, button, .print-hidden, [role="button"] {
+    display: none !important;
+  }
+  .print-static {
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    display: block !important;
+  }
+  /* Prevent sections from breaking middle-page */
+  .prose, .question, .options, .answer-section, .logic-gate {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 }

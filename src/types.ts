@@ -15,6 +15,9 @@ export interface EnadeQuestion {
   correctAnswer?: string;
   evaluationCriteria?: string[];
   explanation: string;
+  visualDescription?: string;
+  imageAlt?: string;
+  visualData?: string; // For Mermaid or other graphic data
   studySuggestions: {
     topic: string;
     description: string;
